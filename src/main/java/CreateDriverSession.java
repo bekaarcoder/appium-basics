@@ -14,8 +14,18 @@ public class CreateDriverSession {
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_3");
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
-        String appUrl = System.getProperty("user.dir") + "\\src\\main\\resources\\ApiDemos-debug.apk";
-        caps.setCapability(MobileCapabilityType.APP, appUrl);
+
+        // Launch Android Emulator Automatically
+        caps.setCapability("avd", "Pixel_3");
+        caps.setCapability("avdLaunchTimeout", 180000);
+
+        // Installs the apk in the device
+//        String appUrl = System.getProperty("user.dir") + "\\src\\main\\resources\\ApiDemos-debug.apk";
+//        caps.setCapability(MobileCapabilityType.APP, appUrl);
+
+        // Opens the existing application in the device
+        caps.setCapability("appPackage", "io.appium.android.apis");
+        caps.setCapability("appActivity", "io.appium.android.apis.ApiDemos");
 
         URL url = new URL("http://0.0.0.0:4723/wd/hub");
 
