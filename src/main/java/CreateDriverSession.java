@@ -32,6 +32,10 @@ public class CreateDriverSession {
 //        caps.setCapability("appPackage", "io.appium.android.apis");
 //        caps.setCapability("appActivity", "io.appium.android.apis.ApiDemos");
 
+        // Android device lock capability
+        caps.setCapability("unlockType", "pin");
+        caps.setCapability("unlockKey", "1111");
+
         return new AndroidDriver(url, caps);
     }
 

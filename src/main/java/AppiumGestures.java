@@ -48,9 +48,9 @@ public class AppiumGestures {
         int startY = (int) (size.height * 0.8);
         int endY = (int) (size.height * 0.2);
 
-        touch.press(new PointOption.point(startX, startY))
+        touch.press(PointOption.point(startX, startY))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000)))
-                .moveTo(new PointOption.point(endX, endY))
+                .moveTo(PointOption.point(endX, endY))
                 .release()
                 .perform();
     }
